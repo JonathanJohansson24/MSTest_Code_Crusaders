@@ -84,6 +84,7 @@ Här testar jag försöka skapa ett lån som är över maxbeloppsgränsen på hu
 
 
 
+
 // The project
 
 The Code-crusader bank is a group project for school. The program is coded in C# in .NET. It's a program that resembles a simple bank system.

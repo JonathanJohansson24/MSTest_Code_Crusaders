@@ -6,43 +6,68 @@ Skapa ett konto (CreateAccount)
 Skapa en användare (CreateUser)
 Begäran om lån (RequestLoan)
 De potentiella felen jag tänkte kunde inträffa är dessa som kommer nedan, samt vilka tester jag har valt att utföra: 
+
 1. Skapa ett konto (CheckingAccount)
+
 Potentiella fel:
 Vad händer om man skapar ett konto utan att ange namn? 
 Vad händer om man försöker skapa ett konto med en totalsumma av 0 eller mindre?
-Vad händer om man väljer fel valuta? 
-De tester jag har gjort för denna klassen är dessa fyra jag listar nu, samt vad de utför för någonting:
+Vad händer om man väljer fel valuta?
+
 Tester:
 CreateAccount_Return_ValidInput: Först testar jag om det faktiskt skapas ett konto om man matar in rätt parametrar. 
-CreateAccount_EmptyName_UsesDefaultName: Här testar jag så att om man inte anger ett namn för kontot som skapas så använder sig programmet av det förbestämda defaultvärdet på ett Checking Account
-CreateAccount_InvalidBalance_Return_NotCreated: Här testar jag så att ifall om man matar in felaktig summa, så är det 0 eller mindre att det inte skapas ett konto ändå. 
-CreateAccount_InvalidCurrency_Return_NotCreated: I detta test går jag igenom så att det inte skapas ett konto utifrån att man inte använder sig av SEK eller USD som är de valutor appen hanterar.
+CreateAccount_EmptyName_UsesDefaultName:
+Här testar jag så att om man inte anger ett namn för kontot som skapas så använder sig programmet av det förbestämda defaultvärdet på ett Checking Account
+
+CreateAccount_InvalidBalance_Return_NotCreated: 
+Här testar jag så att ifall om man matar in felaktig summa, så är det 0 eller mindre att det inte skapas ett konto ändå. 
+
+CreateAccount_InvalidCurrency_Return_NotCreated:
+I detta test går jag igenom så att det inte skapas ett konto utifrån att man inte använder sig av SEK eller USD som är de valutor appen hanterar.
 
 
 2. Skapa en användare (CreateUser)
+   
 Potentiella fel:
 Att man inte kan skapa en användare utan att mata in ett användarnamn
 Samma här att man inte kan skapa en användare utan att mata in ett lösenord
 Användare läggs inte till korrekt i kundlistan.
+
 Tester:
 AddUser_Return_ValidInput: Först testar jag så att en användare som skapats på korrekt sätt fungerar. 
-AddUser_EmptyUsername_ThrowsException: Här lämnar jag användarnamnet tomt för att se om det blir en exception
-AddUser_EmptyPin_ThrowsException: Och samma här att om jag lämnar lösenordet tomt så blir det en exception. 
-AddUser_ValidUser_AddsToUserContext: Här testar jag så att ifall allt matats in korrekt även ser till att den lägger till den skapade användaren på rätt sätt.
+AddUser_EmptyUsername_ThrowsException:
+Här lämnar jag användarnamnet tomt för att se om det blir en exception
+
+AddUser_EmptyPin_ThrowsException: 
+Och samma här att om jag lämnar lösenordet tomt så blir det en exception. 
+
+AddUser_ValidUser_AddsToUserContext: 
+Här testar jag så att ifall allt matats in korrekt även ser till att den lägger till den skapade användaren på rätt sätt.
 
 
 3. Begäran om lån (RequestLoan)
+
 Potentiella fel:
 Att beräkningen av hur man får ut sitt maximala belopp man är kapabel att låna går rätt till. 
 Att beräkningen på hur mycket ränta man får på sitt lån går rätt till.
 Att man inte ska kunna låna mera pengar än sitt totala maxbelopp man kan låna
 Att det inte blir fel om man skulle mata in fel parametrar. 
+
 Tester:
-CalculateMaxLoan_TotalCapital_1000_Return_5000: Här testar jag så beräkningen går rätt till ifall man har 1000 totalt att man max kan låna 5000, dvs 5 gånger så mycket pengar man har. 
-CalculateInterest_LoanAmount_1000_Return_50: Här testar jag så att räntesatsen stämmer.
-LoanAmount_Input1000_MaxLoan5000_ReturnsTrueAndLoanAmount1000: Här testar jag att beloppet man vill låna är tillåtet och inom maxgränsen.
-LoanAmount_InvalidInput_ReturnsFalseAndLoanAmount0: Här testar jag ifall om jag matar in fel saker så skapas inget lån. 
-LoanAmount_Input6000_MaxLoan5000_ReturnsFalseAndLoanAmount0: Här testar jag försöka skapa ett lån som är över maxbeloppsgränsen på hur mycket jag får låna, vilket returnerar att jag inte kan låna och inget lån genomförs. 
+CalculateMaxLoan_TotalCapital_1000_Return_5000:
+Här testar jag så beräkningen går rätt till ifall man har 1000 totalt att man max kan låna 5000, dvs 5 gånger så mycket pengar man har.
+
+CalculateInterest_LoanAmount_1000_Return_50:
+Här testar jag så att räntesatsen stämmer.
+
+LoanAmount_Input1000_MaxLoan5000_ReturnsTrueAndLoanAmount1000: 
+Här testar jag att beloppet man vill låna är tillåtet och inom maxgränsen.
+
+LoanAmount_InvalidInput_ReturnsFalseAndLoanAmount0: 
+Här testar jag ifall om jag matar in fel saker så skapas inget lån. 
+
+LoanAmount_Input6000_MaxLoan5000_ReturnsFalseAndLoanAmount0: 
+Här testar jag försöka skapa ett lån som är över maxbeloppsgränsen på hur mycket jag får låna, vilket returnerar att jag inte kan låna och inget lån genomförs. 
 
 
 

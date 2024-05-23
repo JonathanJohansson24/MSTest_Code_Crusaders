@@ -48,6 +48,7 @@ namespace OOP_Projekt_I_Grupp_MSTest
             Assert.AreEqual("Checking Account", account.Name);
             Assert.AreEqual(balance, account.Balance);
             Assert.AreEqual(currency, account.Currency);
+            Assert.AreEqual(1, UserContext.CurrentUser.Accounts.Count);
         }
 
         [TestMethod] // Testar så att man inte kan starta ett konto med minus saldo
